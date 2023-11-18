@@ -24,7 +24,7 @@ class _MovieDetailsState extends State<MovieDetails> {
             height: 200,
             color: Colors.black,
             child: Padding(
-              padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
+              padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
