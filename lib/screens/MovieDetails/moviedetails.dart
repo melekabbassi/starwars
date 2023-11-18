@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:starwars/models/list_movies_model.dart';
 
 class MovieDetails extends StatefulWidget {
-  const MovieDetails({super.key});
-
+  const MovieDetails({super.key, required this.movieData});
+  final Result movieData;
   @override
   State<MovieDetails> createState() => _MovieDetailsState();
 }
@@ -12,7 +13,7 @@ class _MovieDetailsState extends State<MovieDetails> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(child: Text("A New Hope")),
+        title: Center(child: Text(widget.movieData.title ?? "")),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -22,23 +23,23 @@ class _MovieDetailsState extends State<MovieDetails> {
             width: 500,
             height: 200,
             color: Colors.black,
-            child: const Padding(
+            child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 0, 0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Text(
-                    "A New Hope",
-                    style: TextStyle(
+                    widget.movieData.title ?? "",
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 35,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   Row(
@@ -46,7 +47,7 @@ class _MovieDetailsState extends State<MovieDetails> {
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Release date",
                             style: TextStyle(
                               color: Colors.white,
@@ -54,21 +55,21 @@ class _MovieDetailsState extends State<MovieDetails> {
                             ),
                           ),
                           Text(
-                            "1977-05-25",
-                            style: TextStyle(
+                            widget.movieData.releaseDate ?? "",
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                             ),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 14,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Director",
                             style: TextStyle(
                               color: Colors.white,
@@ -76,21 +77,21 @@ class _MovieDetailsState extends State<MovieDetails> {
                             ),
                           ),
                           Text(
-                            "George Lucas",
-                            style: TextStyle(
+                            widget.movieData.director ?? "",
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                             ),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 14,
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(
+                          const Text(
                             "Producer",
                             style: TextStyle(
                               color: Colors.white,
@@ -98,8 +99,8 @@ class _MovieDetailsState extends State<MovieDetails> {
                             ),
                           ),
                           Text(
-                            "Gary Kurtz, Rick McCallum",
-                            style: TextStyle(
+                            widget.movieData.producer ?? "",
+                            style: const TextStyle(
                               color: Colors.white,
                               fontSize: 12,
                             ),
